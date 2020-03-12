@@ -4,18 +4,43 @@
 <div class="basicInfo">
   <div class="form-group">
     <label for="description">Description</label>
-    <textarea ng-model='athlete.description'  type="text" name="description" class="form-control"></textarea>
+    <textarea
+      placeholder="One of the most dominant pitchers in baseball history, Mathewson ranks in the all-time top 10 in several key pitching categories, including wins, shutouts, and ERA."
+      ng-model="athlete.description"
+      type="text"
+      name="description"
+      class="form-control"
+    ></textarea>
   </div>
   <div class="form-group">
     <label for="location">Location</label>
-    <input ng-model='athlete.location'  type="text" name="location" class="form-control" />
+    <input
+    placeholder="New York, NY"
+      ng-model="athlete.location"
+      type="text"
+      name="location"
+      class="form-control"
+    />
   </div>
   <div class="form-group">
     <label for="nationality">Team</label>
-    <input ng-model='athlete.team' type="text" name="team" class="form-control" />
+    <input
+      placeholder="New York Giants"
+      ng-model="athlete.team"
+      type="text"
+      name="team"
+      class="form-control"
+    />
   </div>
   <div class="nextAndBackButtons">
-    <button class="btn btn-primary" ng-click="handleFormViewChange('/')">BACK</button>
-    <button class="btn btn-primary" ng-click="handleFormViewChange('/social-media')">NEXT</button>
+    <button class="btn btn-primary" ng-click="handleFormViewChange('/')">
+      BACK
+    </button>
+    <button
+      class="btn btn-primary"
+      ng-click="handleFormViewChange('/social-media')"
+    >
+      NEXT
+    </button>
   </div>
 </div>

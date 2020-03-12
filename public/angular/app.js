@@ -50,7 +50,13 @@ athleteProfileApp.controller("AthleteController", [
       sport: "",
       nationality: "",
       gender: "",
-      dateOfBirth: ""
+      dateOfBirth: "",
+      description: "",
+      location: "",
+      team: "",
+      twitter: "",
+      facebook: "",
+      instagram: ""
     };
 
     $scope.postAthlete = function() {
@@ -64,6 +70,7 @@ athleteProfileApp.controller("AthleteController", [
         .catch(err => {
             console.log(err)
         })
+        $location.path('/list');
       };
   }
 ]);
