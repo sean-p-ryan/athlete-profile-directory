@@ -1,3 +1,64 @@
-.main-input {
-    width: 600px;
+* {
+  font-family: "Libre Franklin", sans-serif;
+}
+
+.mainWrapper {
+  width: 600px;
+  margin: 30px auto;
+  padding: 10px 30px;
+  border: 1px solid black;
+  background: #D9DFE9;
+}
+
+.heading {
+  text-align: center;
+}
+
+.viewButtons {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  font-size: 18px;
+  margin: 30px 0;
+}
+
+.viewButtons > div:hover {
+  cursor: pointer;
+}
+
+.activeView {
+  border-bottom: 3px solid black;
+  padding-bottom: 5px;
+}
+
+.progressBar {
+  list-style: none;
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  padding: 0;
+}
+
+.progressBar li {
+  width: 130px;
+  border: 1px solid black;
+  text-align: center;
+  background: white;
+}
+
+.nextAndBackButtons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nextButton {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.finalSubmitButtonContainer {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
 }

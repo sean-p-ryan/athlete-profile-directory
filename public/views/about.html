@@ -1,0 +1,21 @@
+<ul class="progressBar">
+  <li ng-repeat="section in sections">{{section.name}}</li>
+</ul>
+<div class="basicInfo">
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea ng-model='athlete.description'  type="text" name="description" class="form-control"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="location">Location</label>
+    <input ng-model='athlete.location'  type="text" name="location" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="nationality">Team</label>
+    <input ng-model='athlete.team' type="text" name="team" class="form-control" />
+  </div>
+  <div class="nextAndBackButtons">
+    <button class="btn btn-primary" ng-click="handleFormViewChange('/')">BACK</button>
+    <button class="btn btn-primary" ng-click="handleFormViewChange('/social-media')">NEXT</button>
+  </div>
+</div>

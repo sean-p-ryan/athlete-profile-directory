@@ -1,0 +1,28 @@
+<ul class="progressBar">
+  <li ng-repeat="section in sections">{{section.name}}</li>
+</ul>
+  <div class="basicInfo">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input placeholder="Christy Mathewson" ng-model='athlete.name' type="text" name="name" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="sport">Sport</label>
+      <input placeholder="Baseball" ng-model='athlete.sport' type="text" name="sport" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="nationality">Nationality</label>
+      <input placeholder="American" ng-model='athlete.nationality' type="text" name="nationality" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="gender">Gender</label>
+      <input placeholder="Male" ng-model='athlete.gender' type="text" name="gender" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="dateOfBirth">Date of Birth</label>
+      <input name="dateOfBirth" placeholder="October 12, 1880" ng-model='athlete.dateOfBirth' type="text" name="dateOfBirth" class="form-control" />
+    </div>
+  </div>
+  <div class="nextButton">    
+    <button type="text" class="btn btn-primary" ng-click="handleFormViewChange('/about')">NEXT</button>
+  </div>

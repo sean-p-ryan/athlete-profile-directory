@@ -28,8 +28,10 @@ router.get('/profile', (req, res) => {
 })
 
 router.post('/profile', (req, res) => {
+	console.log('in router.post')
 	Profile.create(req.body)
 	.then(profile => {
+		console.log('in success block ' + profile)
 		res.json({
 			confirmation: 'success',
 			data: profile

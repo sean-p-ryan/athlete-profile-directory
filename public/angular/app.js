@@ -1,48 +1,69 @@
-const athleteProfileApp = angular.module('athleteProfileApp', ['ngRoute']);
+const athleteProfileApp = angular.module("athleteProfileApp", ["ngRoute"]);
 
-athleteProfileApp.config([
-  $routeProvider,
-  function($routeProvider) {
+angular.module("athleteProfileApp").config([
+  "$routeProvider",
+  function config($routeProvider) {
     $routeProvider
-      .when("/home", {
-        templateUrl: "./home.html"
+      .when("/", {
+        templateUrl: "../public/views/basic-info.html"
+      })
+      .when("/about", {
+        templateUrl: "../public/views/about.html"
+      })
+      .when("/social-media", {
+        templateUrl: "../public/views/social-media.html"
+      })
+      .when("/list", {
+        templateUrl: "../public/views/athlete-list.html"
+      })
+      .when("/submit", {
+        templateUrl: "../public/views/submit.html"
       })
       .otherwise({
-        redirectTo: "/home"
+        redirectTo: "/"
       });
   }
 ]);
 
 athleteProfileApp.controller("AthleteController", [
   "$scope",
-  function($scope) {
-    $scope.message = "hey there";
+  "$location",
+  "$http",
 
-    $scope.ninjas = [
-      {
-        name: "Yoshi",
-        belt: "green"
-      },
-      {
-        name: "Crystal",
-        belt: "yellow"
-      },
-      {
-        name: "Ryu",
-        belt: "orange"
-      },
-      {
-        name: "Sean",
-        belt: "black"
-      }
-    ];
+  function($scope, $location, $http) {
+    $scope.currentFormViewIndex = 0;
+
+    $scope.handleFormViewChange = function(newPath) {
+      $scope.currentFormViewIndex++;
+      $location.path(newPath);      
+    };
 
     $scope.sections = [
-      "Basic Info",
-      "About",
-      "Social Media",
-      "Summary",
-      "Submit"
+      { name: "Basic Info", path: "/" },
+      { name: "About", path: "#/about" },
+      { name: "Social Media", path: "#/social-media" },
+      { name: "Submit", path: "#/submit" }
     ];
+
+    $scope.athlete = {
+      name: "",
+      sport: "",
+      nationality: "",
+      gender: "",
+      dateOfBirth: ""
+    };
+
+    $scope.postAthlete = function() {
+        console.log('Yes!');
+        let newAthlete = $scope.athlete;
+        console.log(newAthlete)
+        $http.post('/api/profile', newAthlete)
+        .then(res => {
+            console.log(res)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+      };
   }
 ]);
