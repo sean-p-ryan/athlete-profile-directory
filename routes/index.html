@@ -19,10 +19,13 @@
       <div id="menu-bar">
         <h1 class="heading">Athlete Profile Directory</h1>
         <div class="viewButtons">
-          <div class="activeView"><a href="#/">ADD ATHLETE</a></div>
-          <div><a href="#/list">VIEW ALL ATHLETES</a></div>
+          <div ng-class='{activeView: addViewDisplay}'><a ng-click='handleFormViewChange("#/"); changeViewClasses()' >ADD ATHLETE</a></div>
+          <div ng-class='{activeView: listViewDisplay}'><a ng-click='handleFormViewChange("/list"); changeViewClasses(); getAthletes();'>VIEW ALL ATHLETES</a></div>
         </div>
       </div>
+      <ul class="progressBar">
+        <li ng-class='{activeFormSection: addActiveFormSection(section.path)}' ng-repeat="section in sections">{{section.name}}</li>
+      </ul>
       <form action="/api/profile" method="post" class="main-input"></form>
       <div ng-view></div>
     </form>

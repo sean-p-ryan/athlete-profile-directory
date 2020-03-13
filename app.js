@@ -1,6 +1,7 @@
+const vertex = require('vertex360')({site_id: process.env.TURBO_APP_ID})
 const express = require('express')
-const app = express() // initialize app
 
+const app = express() // initialize app
 
 const config = {
 	views: 'views', 		// Set views directory 
@@ -17,6 +18,11 @@ const config = {
 	}
 }
 
+vertex.configureApp(app, config) 
+
+vertex.configureApp(app)
+app.use(vertex.setContext(process.env))
+
 
 // import routes
 const index = require('./routes/index')
@@ -24,8 +30,8 @@ const api = require('./routes/api')
 
 // set routes
 app.use('/', index)
-app.use("/public", express.static(__dirname + '/public'));
-app.use('/api', api) // sample API Routes
+app.use('/public', express.static(__dirname + '/public'));
+app.use('/api', api) // API Routes
 
 
 module.exports = app

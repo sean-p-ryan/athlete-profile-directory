@@ -1,1 +1,35 @@
-<p>ATHLETE LIST</p>
+<div class="athleteContainer" ng-repeat="athlete in allAthletes.profiles">
+  <div class="athleteName">
+    <span class="field">NAME:</span> {{athlete.name}}
+  </div>
+  <div class="athleteInfo">
+    <span class="field">Sport</span>: {{athlete.sport}}
+  </div>
+  <div class="athleteInfo">
+    <span class="field">Nationality:</span> {{athlete.nationality}}
+  </div>
+  <div class="athleteInfo">
+    <span class="field">Gender:</span> {{athlete.gender}}
+  </div>
+  <div class="athleteInfo">
+    <span class="field">Date of Birth:</span> {{athlete.dateOfBirth}}
+  </div>
+  <div class="athleteInfo">
+    <span class="field">Description:</span> {{athlete.description}}
+  </div>
+  <div class="athleteInfo">
+    <span class="field">Location:</span> {{athlete.location}}
+  </div>
+  <div class="athleteInfo">
+    <span class="field">Team:</span>{{athlete.team}}
+  </div>
+  <div class="athleteInfo">
+    <span class="field">Twitter:</span> {{athlete.twitter}}
+  </div>
+  <div class="athleteInfo">
+    <span class="field">Facebook:</span> {{athlete.facebook}}
+  </div>
+  <div class="athleteInfo">
+    <span class="field">Instagram:</span> {{athlete.instagram}}
+  </div>
+</div>

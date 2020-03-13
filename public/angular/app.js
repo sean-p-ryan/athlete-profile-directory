@@ -30,19 +30,38 @@ athleteProfileApp.controller("AthleteController", [
   "$location",
   "$http",
 
-  function($scope, $location, $http) {
-    $scope.currentFormViewIndex = 0;
+  function($scope, $location, $http) {    
 
     $scope.handleFormViewChange = function(newPath) {
-      $scope.currentFormViewIndex++;
-      $location.path(newPath);      
+      $location.path(newPath);           
     };
+
+    $scope.listViewDisplay = false;
+    $scope.addViewDisplay = true;    
+
+    $scope.changeViewClasses = function() { 
+        console.log($scope.activeFormSection)               
+        if ($location.$$path === '/list'){
+            $scope.listViewDisplay = true; 
+            $scope.addViewDisplay = false; 
+        } else {
+            $scope.listViewDisplay = false;
+            $scope.addViewDisplay = true; 
+        }        
+    }
+
+    $scope.addActiveFormSection = function(path) {
+        console.log('hi')
+        console.log(path)
+        console.log($location.$$path)
+        return path === $location.$$path;
+    }
 
     $scope.sections = [
       { name: "Basic Info", path: "/" },
-      { name: "About", path: "#/about" },
-      { name: "Social Media", path: "#/social-media" },
-      { name: "Submit", path: "#/submit" }
+      { name: "About", path: "/about" },
+      { name: "Social Media", path: "/social-media" },
+      { name: "Submit", path: "/submit" }
     ];
 
     $scope.athlete = {
@@ -57,20 +76,25 @@ athleteProfileApp.controller("AthleteController", [
       twitter: "",
       facebook: "",
       instagram: ""
-    };
+    };    
 
-    $scope.postAthlete = function() {
-        console.log('Yes!');
-        let newAthlete = $scope.athlete;
-        console.log(newAthlete)
+    $scope.postAthlete = function() {        
+        let newAthlete = $scope.athlete;        
         $http.post('/api/profile', newAthlete)
         .then(res => {
             console.log(res)
+            $scope.getAthletes();
         })
         .catch(err => {
             console.log(err)
         })
         $location.path('/list');
-      };
+      };    
+
+    $scope.getAthletes = function() {        
+        $http.get('api/profiles').success(data => {            
+            $scope.allAthletes = data        
+        })        
+    }
   }
 ]);

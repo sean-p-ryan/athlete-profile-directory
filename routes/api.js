@@ -4,19 +4,11 @@ const router = express.Router()
 
 const Profile = require('../models/Profile')
 
-router.get('/profile', (req, res) => {
-	let filters = req.query;	
-	if (req.query.age != null){
-		filters = {
-			age: {$gt: req.query.age}
-		}
-	}
-
-	Profile.find(filters)
+router.get('/profiles', (req, res) => {
+	Profile.find()
 	.then(profiles => {
-		res.json({
-			confirmation: 'success',
-			data: profiles
+		res.json({			
+			profiles
 		})
 	})
 	.catch(err => {
@@ -28,10 +20,8 @@ router.get('/profile', (req, res) => {
 })
 
 router.post('/profile', (req, res) => {
-	console.log('in router.post')
 	Profile.create(req.body)
 	.then(profile => {
-		console.log('in success block ' + profile)
 		res.json({
 			confirmation: 'success',
 			data: profile
@@ -40,7 +30,7 @@ router.post('/profile', (req, res) => {
 	.catch(err => {
 		res.json({
 			confirmation: 'fail',
-			message: err.message
+			message: err
 		})
 	})
 })

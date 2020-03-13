@@ -26,6 +26,10 @@
   cursor: pointer;
 }
 
+.viewButtons:active {
+    outline: none;
+}
+
 .activeView {
   border-bottom: 3px solid black;
   padding-bottom: 5px;
@@ -34,7 +38,7 @@
 .progressBar {
   list-style: none;
   display: flex;
-  margin-top: 20px;
+  margin: 20px;
   justify-content: center;
   padding: 0;
 }
@@ -44,6 +48,11 @@
   border: 1px solid black;
   text-align: center;
   background: white;
+}
+
+.activeFormSection {
+    background: gray !important;    
+    color: #fff !important;
 }
 
 .nextAndBackButtons {
@@ -61,4 +70,23 @@
   width: 300px;
   margin: 0 auto;
   text-align: center;
+}
+
+.athleteContainer {
+    width: 80%;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px 6px #ccc; 
+    padding: 10px;
+    margin: 0 auto 20px auto;
+
+}
+
+.field {
+    font-weight: 900;   
+    text-transform: uppercase; 
+}
+
+.athleteInfo {
+    margin-bottom: 5px;
 }
