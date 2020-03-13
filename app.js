@@ -4,12 +4,10 @@ const mongoose = require('mongoose');
 
 const app = express() // initialize app
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://SeanRyan:Microg61!@ds111565.mlab.com:11565/heroku_71m44ccf', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mongo-proj', {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 })
-
-// mongodb://localhost/mongo-proj
 
 mongoose.connection.on('connected', () => {
 	console.log('Mongoose is connected!')
