@@ -1,28 +1,19 @@
-# mongo-project
-
-This project was built with Turbo 360. To learn more, click here: https://www.turbo360.co
 
 ## Instructions
-After cloning into repo, cd to project root directory and install dependencies:
+You must have Node.js and MongoDB installed to run this project locally. 
 
 ```
 $ npm install
 ```
 
-To run dev server, install Turbo CLI globally:
+To run dev server, run:
 
 ```
-$ sudo npm install turbo-cli -g
+npm start
 ```
 
-Then run devserver from project root directory:
+To established a database connection, run:
 
 ```
-$ turbo devserver
-```
-
-To build for production, run build:
-
-```
-$ npm run build
+mongod
 ```
