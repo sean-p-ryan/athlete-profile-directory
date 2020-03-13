@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const app = express() // initialize app
 
-mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/mongo-proj', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mongo-proj', {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 })
