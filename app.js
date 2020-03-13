@@ -1,28 +1,17 @@
 const vertex = require('vertex360')({site_id: process.env.TURBO_APP_ID})
-const express = require('express')
+const express = require('express');
+const mongoose = require('mongoose');
 
 const app = express() // initialize app
 
-const config = {
-	views: 'views', 		// Set views directory 
-	static: 'public', 		// Set static assets directory
-	db: { 					// Database configuration. Remember to set env variables in .env file: MONGODB_URI, PROD_MONGODB_URI
-		url: 'mongodb://localhost/mongo-proj',
-		type: 'mongo',
-		onError: (err) => {
-			console.log('DB Connection Failed!')
-		},
-		onSuccess: () => {
-			console.log('DB Successfully Connected!')
-		}
-	}
-}
+mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/mongo-proj', {
+	useNewUrlParser: true,
+	useUnifiedTopology: true
+})
 
-vertex.configureApp(app, config) 
-
-vertex.configureApp(app)
-app.use(vertex.setContext(process.env))
-
+mongoose.connection.on('connected', () => {
+	console.log('Mongoose is connected!')
+})
 
 // import routes
 const index = require('./routes/index')
